@@ -1,0 +1,185 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1a1a1a;
+  font-family: Arial, sans-serif;
+}
+
+/* Game Container */
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-image: url('assets/background.png');
+  background-size: cover;
+  background-position: center;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  width: 90vw;
+  max-width: 500px;
+  height: 90vh;
+  max-height: 700px;
+}
+
+/* Tile Container with CSS Grid */
+#tile-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  grid-template-rows: repeat(8, 1fr); /* 8 rows */
+  /* gap: 5px; /* Gap between tiles */ */
+  width: 95%;
+  height: 85%; /* Takes up 85% of game-container height */
+  max-height: 85%;
+  overflow: hidden;
+  padding: 20px 10px 10px 10px;
+}
+
+/* Base styling for tiles */
+.tile {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.start {
+  cursor: default; /* Change cursor to indicate non-clickable */
+  pointer-events: none;
+}
+
+.tile:hover {
+  transform: scale(1.05); /* Slightly enlarges the tile on hover */
+}
+
+/* Styling for images inside tiles */
+.tile img {
+  width: 95%;
+  height: 95%;
+}
+
+.non-clickable {
+  cursor: default; /* Change cursor to indicate non-clickable */
+}
+
+.clickable {
+  cursor: pointer; /* Change cursor to indicate non-clickable */
+  pointer-events: auto;
+}
+
+/* Blocked Tile Styling */
+.blocked {
+  position: relative;
+}
+
+.non-clickable, .blocked {
+  pointer-events: none;
+}
+
+.blocked::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/blocked.png');
+  background-size: cover;
+  background-position: center;
+}
+
+#detail-container {
+  flex: 1; /* Detail container takes the remaining 15% of the height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  color: #ffffff;
+  font-size: 16px;
+  margin-top: 25px;
+}
+
+#point-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+#point-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+#items-stage-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#items-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  width: 66.6%; /* 2/3 of the row */
+  text-align: center;
+}
+
+#stage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  width: 30%; /* Remaining 1/3 of the row */
+  text-align: center;
+}
+
+/* Base styling for hit bar */
+.hit-bar-container {
+  position: absolute;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  bottom: 0px;
+}
+
+.hit-bar {
+  background-color: #ff5722;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.mob, .elite, .boulder, .haka {
+  position: relative;
+}
