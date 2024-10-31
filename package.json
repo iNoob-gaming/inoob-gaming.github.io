@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  },
+  "scripts": {
+    "start": "lite-server"
+  },
+  "dependencies": {
+    "page": "^1.11.6"
+  }
+}
